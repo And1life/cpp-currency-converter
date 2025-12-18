@@ -1,6 +1,7 @@
 #include "core/ExchangeRate.hpp"
 #include <stdexcept>
 
+
 void ExchangeRate::addCurrency(const Currency &currency)
 {
     currencies_[currency.getCode()] = currency;
@@ -17,5 +18,12 @@ double ExchangeRate::convert(const std::string &from, const std::string &to, dou
     double toRate = currencies_.at(to).getRate();
 
     return amount * (toRate / fromRate);
-    
+}
+
+void ExchangeRate::updateRate(const std::string &code, double rate)
+{
+    if (currencies_.find(code) != currencies_.end())
+    {
+        currencies_[code].setRate(rate);
+    }
 }
