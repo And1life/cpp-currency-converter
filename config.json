@@ -1,0 +1,12 @@
+{
+  "api": {
+    "url": "api.currencyfreaks.com",
+    "endpoint": "/v2.0/rates/latest",
+    "apikey": "1ffde2285229404781abc504c47fd661"
+  },
+  "currencies": [
+    { "code": "USD", "name": "US Dollar", "rate": 1.0 },
+    { "code": "EUR", "name": "Euro", "rate": 0.85 },
+    { "code": "GBP", "name": "British Pound", "rate": 0.75 }
+  ]
+}
