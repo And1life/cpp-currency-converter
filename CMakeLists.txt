@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(currency_converter
     main.cpp 
     src/core/Currency.cpp 
-    # src/core/ExchangeRate.cpp 
+    src/core/ExchangeRate.cpp 
     # src/api/ExchangeApi.cpp
 )
 target_include_directories(currency_converter PUBLIC 

@@ -6,6 +6,7 @@ class Currency
 
 public:
 
+    Currency() = default;
     Currency(const std::string& code, const std::string& name, double rate);
 
     std::string getCode() const;
