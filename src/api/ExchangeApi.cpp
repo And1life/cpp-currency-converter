@@ -1,3 +1,5 @@
+#define CPPHTTPLIB_OPENSSL_SUPPORT
+
 #include "api/ExchangeApi.hpp"
 #include "httplib.h"
 #include "json.hpp"

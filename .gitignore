@@ -14,7 +14,7 @@ cmake_install.cmake
 !CMakeLists.txt
 *.svg
 *.json
-!data/tasks.json
+!config.json
 
 # Игнорировать только сгенерированные файлы документации в docs/
 docs/html/
