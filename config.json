@@ -2,7 +2,7 @@
   "api": {
     "url": "api.currencyfreaks.com",
     "endpoint": "/v2.0/rates/latest",
-    "apikey": "1ffde2285229404781abc504c47fd661"
+    "apiKey": "1ffde2285229404781abc504c47fd661"
   },
 
   "currencies": [
