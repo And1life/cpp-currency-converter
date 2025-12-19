@@ -38,7 +38,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="amountLineEdit">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -51,7 +51,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="fromCurrencyComboBox">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -61,7 +61,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBox_2">
+     <widget class="QComboBox" name="toCurrencyComboBox">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -71,7 +71,7 @@
      </widget>
     </item>
     <item alignment="Qt::AlignmentFlag::AlignHCenter">
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="resultLabel">
       <property name="text">
        <string>100 EUR = 117.51 USD</string>
       </property>
