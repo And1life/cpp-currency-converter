@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>flags/USD.png</file>
+        <file>flags/EUR.png</file>
+        <file>flags/SGD.png</file>
+        <file>flags/SEK.png</file>
+        <file>flags/NZD.png</file>
+        <file>flags/KRW.png</file>
+        <file>flags/JPY.png</file>
+        <file>flags/INR.png</file>
+        <file>flags/GBR.png</file>
+        <file>flags/CNY.png</file>
+        <file>flags/CHF.png</file>
+        <file>flags/CAD.png</file>
+        <file>flags/BRL.png</file>
+        <file>flags/AUD.png</file>
+        <file>flags/RUB.png</file>
+    </qresource>
+</RCC>

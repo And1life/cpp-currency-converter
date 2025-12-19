@@ -12,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->fromCurrencyComboBox->setIconSize(QSize(24, 16));
+    ui->toCurrencyComboBox->setIconSize(QSize(24, 16));
+
+
     try {
         ConfigManager configManager("config.json");
         ExchangeRate exchangeRate(configManager);
@@ -19,8 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 
         for (const auto& currency : configManager.getCurrencies()) {
-            ui->fromCurrencyComboBox->addItem(QString::fromStdString(currency.code));
-            ui->toCurrencyComboBox->addItem(QString::fromStdString(currency.code));
+            const QString code = QString::fromStdString(currency.code);
+            const QIcon icon{flagForCode(currency.code)};
+            ui->fromCurrencyComboBox->addItem(icon, code);
+            ui->toCurrencyComboBox->addItem(icon, code);
         }
 
         connect(ui->amountLineEdit, &QLineEdit::textChanged, this, &MainWindow::onAmountChanged);
@@ -77,6 +83,30 @@ void MainWindow::updateConversion()
     } catch (const std::exception& e) {
         QMessageBox::critical(this, "Error", QString("Conversion failed: ") + e.what());
     }
+}
+
+
+QString MainWindow::flagForCode(const std::string& code)
+{
+    QString c = QString::fromStdString(code).toUpper();
+
+    if (c == "EUR") return ":/flags/EUR.png";
+    if (c == "USD") return ":/flags/USD.png";
+    if (c == "RUB") return ":/flags/RUB.png";
+    if (c == "SGD") return ":/flags/SGD.png";
+    if (c == "SEK") return ":/flags/SEK.png";
+    if (c == "NZD") return ":/flags/NZD.png";
+    if (c == "KRW") return ":/flags/KRW.png";
+    if (c == "JPY") return ":/flags/JPY.png";
+    if (c == "INR") return ":/flags/INR.png";
+    if (c == "GBR") return ":/flags/GBR.png";
+    if (c == "CNY") return ":/flags/CNY.png";
+    if (c == "CHF") return ":/flags/CHF.png";
+    if (c == "CAD") return ":/flags/CAD.png";
+    if (c == "BRL") return ":/flags/BRL.png";
+    if (c == "AUD") return ":/flags/AUD.png";
+
+    return ":/flags/USD.png";
 }
 
 MainWindow::~MainWindow()

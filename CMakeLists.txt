@@ -36,6 +36,7 @@ set(HEADERS
 set(RESOURCES
     config.json
     src/gui/mainwindow.ui
+    resources/resources.qrc
 )
 
 

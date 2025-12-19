@@ -20,6 +20,8 @@ private:
     void onFromCurrencyChanged(int index);
     void onToCurrencyChanged(int index);
 
+    QString flagForCode(const std::string& code);
+
 private:
     Ui::MainWindow *ui;
     void updateConversion();
