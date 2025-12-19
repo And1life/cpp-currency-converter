@@ -1,16 +1,16 @@
 cmake_minimum_required(VERSION 3.15)
-project(CurrencyConverter)
+project(CurrencyConverter LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt 6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 
 # Sources
-set(SOURSES
+set(SOURCES
     main.cpp 
     src/core/Currency.cpp 
     src/core/ExchangeRate.cpp 
@@ -19,11 +19,11 @@ set(SOURSES
 )
 
 # Headers
-set(HEADER
-    core/Currensy.hpp
-    core/ExchangeRate.hpp
-    api/ExchangeApi.hpp
-    ConfigManager.hpp
+set(HEADERS
+    include/core/Currency.hpp
+    include/core/ExchangeRate.hpp
+    include/api/ExchangeApi.hpp
+    include/utils/ConfigManager.hpp
 )
 
 add_executable(currency_converter ${SOURCES} ${HEADERS})
