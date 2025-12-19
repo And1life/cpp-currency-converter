@@ -25,6 +25,7 @@ private:
 private:
     Ui::MainWindow *ui;
     void updateConversion();
+    QString formatNumber(double value);
 };
 
 #endif // MAINWINDOW_H

@@ -4,6 +4,7 @@
 #include "api/ExchangeApi.hpp"
 #include "utils/ConfigManager.hpp"
 #include <QMessageBox>
+#include <QDoubleValidator>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -14,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->fromCurrencyComboBox->setIconSize(QSize(24, 16));
     ui->toCurrencyComboBox->setIconSize(QSize(24, 16));
+
+    auto *validator = new QDoubleValidator(0.0, 100000000000.0, 2, this);
+    validator->setNotation(QDoubleValidator::StandardNotation);
+    ui->amountLineEdit->setValidator(validator);
 
 
     try {
@@ -57,11 +62,19 @@ void MainWindow::onFromCurrencyChanged(int index)
     updateConversion();
 }
 
+QString MainWindow::formatNumber(double value)
+{
+    QLocale locale(QLocale::German);
+    return locale.toString(value, 'f', 2);
+}
+
 void MainWindow::updateConversion()
 {
     QString fromCurrency = ui->fromCurrencyComboBox->currentText();
     QString toCurrency = ui->toCurrencyComboBox->currentText();
-    double amount = ui->amountLineEdit->text().toDouble();
+    QString amountText = ui->amountLineEdit->text();
+    double amount = amountText.replace(" ", "").toDouble();
+
 
     if(amount <= 0)
     {
@@ -77,8 +90,8 @@ void MainWindow::updateConversion()
         double result = exchangeRate.convert(fromCurrency.toStdString(),
     toCurrency.toStdString(), amount);
 
-        ui->resultLabel->setText(QString::number(amount, 'f', 2) + " " + fromCurrency + " = " +
-    QString::number(result, 'f', 2) + " " + toCurrency);
+        ui->resultLabel->setText(formatNumber(amount) + " " + fromCurrency + " = " +
+    formatNumber(result) + " " + toCurrency);
 
     } catch (const std::exception& e) {
         QMessageBox::critical(this, "Error", QString("Conversion failed: ") + e.what());
