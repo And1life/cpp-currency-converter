@@ -4,9 +4,82 @@
     "endpoint": "/v2.0/rates/latest",
     "apikey": "1ffde2285229404781abc504c47fd661"
   },
+
   "currencies": [
-    { "code": "USD", "name": "US Dollar", "rate": 1.0 },
-    { "code": "EUR", "name": "Euro", "rate": 0.85 },
-    { "code": "GBP", "name": "British Pound", "rate": 0.75 }
+    {
+      "code": "USD",
+      "name": "US Dollar",
+      "rate": 1.0
+    },
+    {
+      "code": "EUR",
+      "name": "Euro",
+      "rate": 0.85
+    },
+    {
+      "code": "GBP",
+      "name": "British Pound",
+      "rate": 0.75
+    },
+    {
+      "code": "JPY",
+      "name": "Japanese Yen",
+      "rate": 110.25
+    },
+    {
+      "code": "RUB",
+      "name": "Russian Ruble",
+      "rate": 75.5
+    },
+    {
+      "code": "CNY",
+      "name": "Chinese Yuan",
+      "rate": 6.5
+    },
+    {
+      "code": "AUD",
+      "name": "Australian Dollar",
+      "rate": 1.35
+    },
+    {
+      "code": "CAD",
+      "name": "Canadian Dollar",
+      "rate": 1.25
+    },
+    {
+      "code": "CHF",
+      "name": "Swiss Franc",
+      "rate": 0.92
+    },
+    {
+      "code": "SEK",
+      "name": "Swedish Krona",
+      "rate": 8.5
+    },
+    {
+      "code": "NZD",
+      "name": "New Zealand Dollar",
+      "rate": 1.45
+    },
+    {
+      "code": "BRL",
+      "name": "Brazilian Real",
+      "rate": 5.2
+    },
+    {
+      "code": "INR",
+      "name": "Indian Rupee",
+      "rate": 74.5
+    },
+    {
+      "code": "KRW",
+      "name": "South Korean Won",
+      "rate": 1150.0
+    },
+    {
+      "code": "SGD",
+      "name": "Singapore Dollar",
+      "rate": 1.35
+    }
   ]
 }

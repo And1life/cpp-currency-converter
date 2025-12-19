@@ -1,6 +1,13 @@
 #include "core/ExchangeRate.hpp"
 #include <stdexcept>
 
+ExchangeRate::ExchangeRate(const ConfigManager& configManager)
+{
+    for (const auto& currencyConfig : configManager.getCurrencies())
+    {
+        addCurrency(Currency(currencyConfig.code, currencyConfig.name, currencyConfig.rate));
+    }
+}
 
 void ExchangeRate::addCurrency(const Currency &currency)
 {

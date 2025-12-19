@@ -3,10 +3,13 @@
 #include <map>
 #include <string>
 #include <core/Currency.hpp>
+#include "utils/ConfigManager.hpp"
 
 class ExchangeRate
 {
 public:
+
+    ExchangeRate(const ConfigManager& configManager);
     
     void addCurrency(const Currency& currency);
     

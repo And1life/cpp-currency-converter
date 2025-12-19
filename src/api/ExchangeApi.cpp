@@ -5,16 +5,16 @@
 #include "json.hpp"
 #include <iostream>
 
-ExchangeApi::ExchangeApi(ExchangeRate &exchangeRate)
-    : exchangeRate_(exchangeRate) {}
+ExchangeApi::ExchangeApi(ExchangeRate &exchangeRate, const ConfigManager& configManager)
+    : exchangeRate_(exchangeRate), apiConfig_(configManager.getApiConfig()) {}
 
 void ExchangeApi::fetchRates()
 {
-    httplib::SSLClient client("api.currencyfreaks.com");
+    httplib::SSLClient client(apiConfig_.url);
     client.set_connection_timeout(10, 0);
     client.set_read_timeout(10, 0);
 
-    std::string path = "/v2.0/rates/latest?apikey=1ffde2285229404781abc504c47fd661";
+    std::string path = apiConfig_.endpoint + "?apikey=" + apiConfig_.apiKey;
     auto res = client.Get(path.c_str());
 
     if (res && res->status == 200)

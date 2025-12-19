@@ -14,6 +14,7 @@ add_executable(currency_converter
     src/core/Currency.cpp 
     src/core/ExchangeRate.cpp 
     src/api/ExchangeApi.cpp
+    src/utils/ConfigManager.cpp
 )
 
 target_link_libraries(currency_converter ${OPENSSL_LIBRARIES})

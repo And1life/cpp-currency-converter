@@ -1,4 +1,4 @@
-#include "ConfigManager.hpp"
+#include "utils/ConfigManager.hpp"
 #include <fstream>
 #include <iostream>
 
@@ -40,6 +40,19 @@ void ConfigManager::loadConfig(const std::string &configPath)
     
     if (configJson.contains("api"))
     {
+        if (!configJson["api"].contains("url") || configJson["api"]["url"].is_null())
+        {
+            throw std::runtime_error("API URL is missing or null");
+        }
+        if (!configJson["api"].contains("endpoint") || configJson["api"]["endpoint"].is_null())
+        {
+            throw std::runtime_error("API endpoint is missing or null");
+        }
+        if (!configJson["api"].contains("apiKey") || configJson["api"]["apiKey"].is_null())
+        {
+            throw std::runtime_error("API apikey is missing or null");
+        }
+
         apiConfig_.url = configJson["api"]["url"];
         apiConfig_.endpoint = configJson["api"]["endpoint"];
         apiConfig_.apiKey = configJson["api"]["apiKey"];
